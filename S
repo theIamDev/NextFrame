@@ -1,0 +1,26 @@
+[33mcommit 83b0ec3b662a9fbc60b75b87be5e2acddcb60127[m
+Author: Aditya Chaudhary <aditya28chy@gmail.com>
+Date:   Fri Jul 18 21:21:35 2025 +0530
+
+    Resolved layout and page conflict, restored full layout
+
+[1mdiff --git a/src/app/page.tsx b/src/app/page.tsx[m
+[1mnew file mode 100644[m
+[1mindex 0000000..2f51869[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/page.tsx[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32m// src/app/page.tsx[m
+[32m+[m[32mimport PublicLayout from "./(public)/layout";[m
+[32m+[m[32mimport HomeFeatures from "@/features/home/HomeFeatures";[m
+[32m+[m[32mimport HomeLayout from "@/layout/HomeLayout";[m
+[32m+[m
+[32m+[m[32mexport default function WrappedHomePage() {[m
+[32m+[m[32m  return ([m
+[32m+[m[32m    <PublicLayout>[m
+[32m+[m[32m      <HomeLayout>[m
+[32m+[m[32m        <HomeFeatures />[m
+[32m+[m[32m      </HomeLayout>[m
+[32m+[m[32m    </PublicLayout>[m
+[32m+[m[32m  );[m
+[32m+[m[32m}[m
