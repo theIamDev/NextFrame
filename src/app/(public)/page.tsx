@@ -1,11 +1,11 @@
 // src/app/(public)/page.tsx
-import HomeFeatures from "@/features/home/HomeFeatures";
-import HomeLayout from "@/layout/HomeLayout";
 
+import React from "react";
+import HomeLayout from "@/components/public/web/layout/HomeLayout";
+
+/**
+ * HomePage - the public-facing landing page of the application.
+ */
 export default function HomePage() {
-  return (
-    <HomeLayout>
-      <HomeFeatures />
-    </HomeLayout>
-  );
+  return <HomeLayout />;
 }
