@@ -1,6 +1,6 @@
 "use client";
 
-import HeaderUI from "../../ui/headerUi";
+import HeaderUI from "../../ui/headerUi"; // Correct relative path
 
 const Header = () => {
   const logo = {
@@ -12,7 +12,9 @@ const Header = () => {
   const links = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about-us" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/contact-us" }, // Changed /contact to /contact-us
+    { label: "Inquiry", href: "/inquiry" },     // Added Inquiry link
+    { label: "Disclaimer", href: "/disclaimer" }, // Added Disclaimer link
   ];
 
   return (
