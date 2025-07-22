@@ -1,4 +1,4 @@
-// src/app/layout.tsx
+// app/layout.tsx
 
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -15,7 +15,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        // IMPORTANT CHANGE: Replaced inline styles with Tailwind classes for layout consistency
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         {children}
