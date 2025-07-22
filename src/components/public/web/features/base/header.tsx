@@ -1,3 +1,5 @@
+"use client";
+
 import HeaderUI from "../../ui/headerUi"; 
 
 const Header = () => {
