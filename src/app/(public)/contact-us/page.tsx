@@ -1,9 +1,9 @@
-import ContactUsContent from "@/components/public/web/features/contact-us/ContactUsContent";
+import ContactForm from '@/components/public/web/features/contact-us/ContactForm';
 
-export default function ContactUsPage() {
+export default function ContactPage() {
   return (
-    <section className="min-h-screen px-4 py-8">
-      <ContactUsContent />
-    </section>
+    <div className="min-h-screen flex items-center justify-center">
+      <ContactForm />
+    </div>
   );
 }
