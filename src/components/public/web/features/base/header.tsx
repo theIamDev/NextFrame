@@ -1,6 +1,6 @@
 "use client";
 
-import HeaderUI from "../../ui/headerUi";
+import HeaderUI from "../../ui/headerUi"; 
 
 const Header = () => {
   const logo = {
@@ -12,7 +12,9 @@ const Header = () => {
   const links = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about-us" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact", href: "/contact-us" },
+    { label: "Inquiry", href: "/inquiry" },     
+    { label: "Disclaimer", href: "/disclaimer" }, 
   ];
 
   return (

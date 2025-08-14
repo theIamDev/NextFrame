@@ -17,7 +17,7 @@ const Footer = () => {
 
   const copyright = `© ${new Date().getFullYear()} CLM Portal. All rights reserved.`;
 
-  return <FooterUI logo={logo} links={links} copyright={copyright} />;
+  return <FooterUI  />;
 };
 
 export default Footer;
