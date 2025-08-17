@@ -1,5 +1,5 @@
 
-    import Container from "@/components/public/web/ui/Container";
+import Container from "@/components/public/web/ui/Container";
 import { useEffect } from "react";
 
 export default function AboutUsContent() {
