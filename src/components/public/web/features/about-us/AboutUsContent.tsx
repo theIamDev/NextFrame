@@ -1,6 +1,7 @@
-"use  client";
-import Container from "@/components/public/web/ui/Container";
+"use client";
+
 import { useEffect } from "react";
+// import Container from "@/components/public/web/ui/Container";
 
 export default function AboutUsContent() {
   useEffect(() => {
@@ -194,14 +195,16 @@ export default function AboutUsContent() {
 
       {/* Logos */}
       <div className="flex flex-wrap gap-[26px] justify-center mt-[34px]">
-        {["TechDaily", "ProductHub", "CodeTalk", "DesignWire"].map((logo, i) => (
-          <span
-            key={i}
-            className="px-3 py-2 rounded-[10px] border border-dashed border-[#e5e7eb] text-[#64748b] bg-white font-semibold tracking-[0.5px] opacity-90"
-          >
-            {logo}
-          </span>
-        ))}
+        {["TechDaily", "ProductHub", "CodeTalk", "DesignWire"].map(
+          (logo, i) => (
+            <span
+              key={i}
+              className="px-3 py-2 rounded-[10px] border border-dashed border-[#e5e7eb] text-[#64748b] bg-white font-semibold tracking-[0.5px] opacity-90"
+            >
+              {logo}
+            </span>
+          )
+        )}
       </div>
     </section>
   );

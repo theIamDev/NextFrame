@@ -1,4 +1,5 @@
-"use  client";// app/(public)/about-us/page.tsx
+"use client";
+
 import AboutUsContent from "@/components/public/web/features/about-us/AboutUsContent";
 
 export default function AboutUsPage() {
