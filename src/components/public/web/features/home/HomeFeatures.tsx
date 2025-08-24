@@ -1,8 +1,14 @@
+// components/public/web/features/home/HomeFeatures.tsx
+'use client';
+
+import React from 'react';
+import PartnerSection from './PartnerSection';
+
 export default function HomeFeatures() {
   return (
-    <div>
-      <h2> Home Page Features</h2>
-      <p>This is content inside HomeFeatures component.</p>
-    </div>
+    <>
+      {/* Other feature sections */}
+      <PartnerSection />
+    </>
   );
 }
