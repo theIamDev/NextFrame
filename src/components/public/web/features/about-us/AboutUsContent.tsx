@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-// import Container from "@/components/public/web/ui/Container";
 
 export default function AboutUsContent() {
   useEffect(() => {
@@ -22,67 +21,58 @@ export default function AboutUsContent() {
 
   return (
     <section
-      className="max-w-[1100px] mx-auto px-5 py-12 bg-[radial-gradient(1200px_600px_at_-10%_-20%,#e0e7ff_0%,transparent_40%),radial-gradient(900px_400px_at_120%_10%,#d1fae5_0%,transparent_45%),#f7f8fc]"
+      className="flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-10 py-12 bg-[radial-gradient(1200px_600px_at_-10%_-20%,#e0e7ff_0%,transparent_40%),radial-gradient(900px_400px_at_120%_10%,#d1fae5_0%,transparent_45%),#f7f8fc]"
       aria-labelledby="about-title"
     >
       <div
-        className="grid lg:grid-cols-[1.05fr,.95fr] gap-10 bg-white rounded-[18px] shadow-[0_10px_30px_rgba(2,8,23,0.06),0_3px_8px_rgba(2,8,23,0.05)] p-7 relative overflow-hidden"
+        className="grid grid-cols-1 lg:grid-cols-[1.05fr,.95fr] gap-10 bg-white rounded-[18px] shadow-[0_10px_30px_rgba(2,8,23,0.06),0_3px_8px_rgba(2,8,23,0.05)] p-6 sm:p-8 relative overflow-hidden max-w-[1100px] w-full"
         data-animate
       >
         {/* Decorative corner */}
-        <div className="absolute right-[-60px] top-[-60px] w-[200px] h-[200px] rotate-[25deg] bg-[radial-gradient(closest-side,rgba(37,99,235,0.08),transparent_70%)]"></div>
+        <div className="absolute right-[-60px] top-[-60px] w-[200px] h-[200px] rotate-[25deg] bg-[radial-gradient(closest-side,rgba(37,99,235,0.08),transparent_70%)] pointer-events-none"></div>
 
-        {/* Left: Image */}
-        <div className="relative">
-          <div className="aspect-[4/3] w-full rounded-[16px] overflow-hidden shadow-[0_10px_30px_rgba(2,8,23,0.06),0_3px_8px_rgba(2,8,23,0.05)] bg-[#eef2ff]">
-            <img
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1600&auto=format&fit=crop"
-              alt="Our team collaborating at the studio"
-              loading="lazy"
-              width="800"
-              height="600"
-              className="w-full h-full object-cover"
-            />
-          </div>
+        {/* Trusted badge - top-right */}
+        <img
+          src="/icons/trusted2.png"
+          alt="Trusted by clients"
+          className="absolute top-4 right-4 h-[45px] sm:h-[50px] lg:h-[55px] w-auto z-20"
+        />
 
-          {/* Floating chip */}
-          <div className="absolute left-[14px] bottom-[14px] bg-white/90 backdrop-saturate-[1.4] backdrop-blur-[6px] rounded-full px-3 py-2 flex items-center gap-2 text-sm text-[#475569] shadow-[0_6px_20px_rgba(15,23,42,0.12)]">
-            <span className="w-[18px] h-[18px] inline-block">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                className="w-full h-full"
-              >
-                <circle cx="12" cy="12" r="10" strokeWidth="1.6" />
-                <path
-                  d="M9 12.5l2 2 4-4"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            Trusted by <strong>&nbsp;1,200+ clients</strong>
-          </div>
+        {/* Left Column: House image */}
+        <div className="flex items-center justify-center">
+          <img
+            src="/icons/house.png"
+            alt="House Icon"
+            className="w-full max-w-[300px] sm:max-w-[320px] md:max-w-[350px] h-auto object-contain"
+          />
         </div>
 
-        {/* Right: Content */}
-        <div>
+        {/* Right Column: Content */}
+        <div className="flex flex-col justify-center text-center lg:text-left">
           <h1
             id="about-title"
-            className="mt-[6px] mb-[10px] text-[clamp(24px,3vw,34px)] tracking-[0.2px] font-bold"
+            className="mt-1 mb-3 text-[clamp(22px,5vw,34px)] tracking-[0.2px] font-bold"
           >
             About Us
           </h1>
-          <p className="text-[#475569] text-[1.05rem] mb-[18px]">
-            We blend design, engineering, and empathy to ship products people
-            love. From first sketch to final launch, our team focuses on
-            clarity, speed, and measurable impact.
+          <p className="text-[#475569] text-[1rem] sm:text-[1.05rem] mb-5">
+            <strong>Born from a Vision, Built on Trust</strong>
+            <br />
+            In today's world, locating a home is not solely about surveying
+            listings — it is about finding a home where your life begins.
+            Whether you are looking for your first apartment, family home, or
+            investment property, your journey deserves transparency, clarity and
+            confidence.
+            <br />
+            In 2022, seasoned real estate expert Ujjawal Sharma began rethinking
+            how people perceive property buying and renting in India. What
+            started as a recruitment firm has become something far greater — a
+            movement. A real estate company based in Kolkata that understands
+            and believes that home is not a place, but a feeling.
           </p>
 
           {/* Points */}
-          <div className="grid gap-[10px] my-[14px] mb-[22px]">
+          <div className="grid gap-3 my-4 mb-6">
             {[
               "Outcome-driven processes with transparent roadmaps.",
               "Human-centered design and accessibility by default.",
@@ -90,7 +80,7 @@ export default function AboutUsContent() {
             ].map((point, i) => (
               <div
                 key={i}
-                className="flex gap-[10px] items-start text-[#0b1220] opacity-0 translate-y-[14px] transition-all duration-500"
+                className="flex gap-3 items-start text-[#0b1220] opacity-0 translate-y-[14px] transition-all duration-500"
                 style={{ transitionDelay: `${i * 0.06}s` }}
                 data-animate
               >
@@ -101,7 +91,7 @@ export default function AboutUsContent() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="flex-shrink-0 w-5 h-5 mt-[2px]"
+                  className="w-5 h-5 mt-[2px] flex-shrink-0"
                 >
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
@@ -114,7 +104,7 @@ export default function AboutUsContent() {
           </div>
 
           {/* Actions */}
-          <div className="flex flex-wrap gap-3 mt-[6px]">
+          <div className="flex flex-wrap gap-3 mt-2 justify-center lg:justify-start">
             <a
               href="#contact"
               className="px-4 py-3 rounded-xl font-semibold bg-[#2563eb] text-white shadow-[0_8px_20px_rgba(37,99,235,0.15)] hover:bg-[#1d4ed8] hover:-translate-y-[1px] transition"
@@ -130,14 +120,14 @@ export default function AboutUsContent() {
           </div>
 
           {/* Stats */}
-          <div className="flex flex-wrap gap-[22px] mt-[18px] text-[#475569]">
+          <div className="flex flex-wrap gap-5 mt-5 text-[#475569] justify-center lg:justify-start">
             {[
               ["10+ yrs", "experience"],
               ["1k+", "projects shipped"],
               ["98%", "satisfaction rate"],
             ].map(([num, label], i) => (
-              <div key={i} className="min-w-[110px]">
-                <span className="block text-[1.25rem] font-bold text-[#0f172a]">
+              <div key={i} className="min-w-[100px]">
+                <span className="block text-lg sm:text-xl font-bold text-[#0f172a]">
                   {num}
                 </span>
                 {label}
@@ -148,7 +138,7 @@ export default function AboutUsContent() {
       </div>
 
       {/* Trust badges */}
-      <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-[14px] mt-[26px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 max-w-[1100px] w-full">
         {[
           {
             icon: (
@@ -170,12 +160,11 @@ export default function AboutUsContent() {
         ].map((badge, i) => (
           <div
             key={i}
-            className="bg-[#f8fafc] border border-[#eef2f7] rounded-[14px] px-3 py-[10px] flex items-center gap-[10px] justify-center transition-all hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(2,8,23,0.06)] opacity-0 translate-y-[14px] duration-500"
+            className="bg-[#f8fafc] border border-[#eef2f7] rounded-[14px] px-4 py-3 flex items-center gap-3 justify-center transition-all hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(2,8,23,0.06)] opacity-0 translate-y-[14px] duration-500"
             style={{ transitionDelay: `${i * 0.06}s` }}
             data-animate
           >
             <span className="w-5 h-5 inline-block text-[#0f172a]">
-              {/* Replace with actual SVG for each badge */}
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -194,12 +183,12 @@ export default function AboutUsContent() {
       </div>
 
       {/* Logos */}
-      <div className="flex flex-wrap gap-[26px] justify-center mt-[34px]">
+      <div className="flex flex-wrap gap-6 justify-center mt-10 max-w-[1100px] w-full">
         {["TechDaily", "ProductHub", "CodeTalk", "DesignWire"].map(
           (logo, i) => (
             <span
               key={i}
-              className="px-3 py-2 rounded-[10px] border border-dashed border-[#e5e7eb] text-[#64748b] bg-white font-semibold tracking-[0.5px] opacity-90"
+              className="px-3 py-2 rounded-[10px] border border-dashed border-[#e5e7eb] text-[#64748b] bg-white font-semibold tracking-[0.5px] opacity-90 text-sm sm:text-base"
             >
               {logo}
             </span>
