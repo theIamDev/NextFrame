@@ -24,16 +24,14 @@ interface HeaderUIProps {
   rightContent?: ReactNode;
 }
 
-export default function HeaderUI({
-  logo,
-  links,
-  rightContent,
-}: HeaderUIProps) {
+export default function HeaderUI({ logo, links, rightContent }: HeaderUIProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
 
+  // Check initial theme
   useEffect(() => {
     if (typeof document !== "undefined") {
       const isDark = document.documentElement.classList.contains("dark");
@@ -41,6 +39,7 @@ export default function HeaderUI({
     }
   }, []);
 
+  // Toggle theme
   const toggleTheme = () => {
     if (theme === "light") {
       document.documentElement.classList.add("dark");
@@ -51,15 +50,29 @@ export default function HeaderUI({
     }
   };
 
+  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.body.style.overflow = mobileOpen ? "hidden" : "";
     }
   }, [mobileOpen]);
 
+  // Detect scroll for header transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-gray-400 dark:bg-gray-900 text-white p-4">
-      <div className="flex items-center justify-between">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+        ${isScrolled ? "bg-gray-900/90 backdrop-blur-md shadow-md" : "bg-transparent"}`}
+    >
+      <div className="flex items-center justify-between px-4 md:px-8 py-3">
         <div className="flex items-center">
           {logo && (
             <Link href={logo.href || "/"} className="mr-8 inline-block">
@@ -72,7 +85,7 @@ export default function HeaderUI({
             </Link>
           )}
 
-          <nav className="hidden md:flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -92,13 +105,13 @@ export default function HeaderUI({
 
           <button
             onClick={toggleTheme}
-            className="p-2 rounded hover:bg-gray-500 dark:hover:bg-gray-700"
+            className="p-2 rounded hover:bg-gray-500/30"
           >
             {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
           </button>
 
           <button
-            className="md:hidden p-2 rounded hover:bg-gray-500 dark:hover:bg-gray-700"
+            className="md:hidden p-2 rounded hover:bg-gray-500/30"
             onClick={() => setMobileOpen((prev) => !prev)}
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -106,7 +119,7 @@ export default function HeaderUI({
         </div>
       </div>
 
-      {/* Mobile drawer - always opens from RIGHT */}
+      {/* Mobile Drawer */}
       <div
         className={`fixed inset-0 z-40 transition-transform ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
@@ -118,7 +131,7 @@ export default function HeaderUI({
         />
         <aside
           ref={panelRef}
-          className="absolute top-0 right-0 h-full p-4 bg-gray-400 dark:bg-gray-900 w-64 shadow-lg"
+          className="absolute top-0 right-0 h-full p-4 bg-gray-800 dark:bg-gray-900 w-64 shadow-lg"
         >
           <div className="flex items-center justify-between mb-4">
             {logo && (
@@ -132,11 +145,11 @@ export default function HeaderUI({
               </Link>
             )}
             <button onClick={() => setMobileOpen(false)}>
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6 text-white" />
             </button>
           </div>
 
-          <nav className="flex flex-col gap-2">
+          <nav className="flex flex-col gap-3">
             {links.map((link) => (
               <Link
                 key={link.href}
